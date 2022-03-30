@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://snippyly.com/assets/logo/logo_colored_black.svg" width="250">
 
-## Getting Started
 
-First, run the development server:
+# Snippyly Next.js Demo
+**This demo has two features:**
+1. **Presence:** Who is online on this page.
+2. **Live Cursors:** Where are the online users on the page. It shows their live cursor position.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+# Documentation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[https://sdk.snippyly.com/docs/next-js-docs](https://sdk.snippyly.com/docs/next-js-docs)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Run demo locally
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Run `npm run dev` command to run demo locally.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+# Live demo
 
-To learn more about Next.js, take a look at the following resources:
+### Live demo link
+[https://snippyly-demo-nextjs.web.app](https://snippyly-demo-nextjs.web.app)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Instructions to try the demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Steps:**
+1. Open the above link in two tabs, side by side: **`tab 1`**: a regular tab; **`tab 2`**: an incognito tab
+2. On **`tab 1`**: Sign in with one of the 3 users given. (e.g. James Smith)
+3. On **`tab 2`**: Sign in with a user different than the one in previous step. (e.g. Maria Garcia)
 
-## Deploy on Vercel
+**Note:**
+* Now you will start seeing Presence icons and Live cursors for each of the users.
+* For the cursors to work each, you need to ensure that the tab is active. You can click on the page to ensure that its active.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="https://snippyly.com/assets/images/react-demo.gif" width="500">
