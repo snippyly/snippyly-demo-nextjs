@@ -1,8 +1,12 @@
 import Head from 'next/head';
+import React, { useState } from 'react';
 import styles from '../../styles/Home.module.css';
+import Tabs from '../components/Tabs/Tabs';
 import Toolbar from '../components/Toolbar/Toolbar';
 
 export default function Home() {
+
+  const [selectedMenu, setSelectedMenu] = useState();
 
   return (
     <div className={styles.container}>
@@ -12,16 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <snippyly-cursor></snippyly-cursor>
-      <Toolbar />
-      <div className="box-container">
-        {
-          Array.from({ length: 25 }, (_, i) => i + 1).map((value) => {
-            return (
-              <div className="box" id={`box${value}`} key={value}><span>{value}</span></div>
-            )
-          })
-        }
-      </div>
+      <Toolbar onMenuSelect={(menu) => setSelectedMenu(menu)} />
+      <Tabs selectedMenu={selectedMenu} />
     </div>
   )
 }

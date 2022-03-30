@@ -1,10 +1,11 @@
-// src/context/state.js
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { SnippylyContext } from '../context/snippylyContext';
 import loadSnippyly from '../loadSnippyly';
 
 export default function SnippylyWrapper({ children }) {
   const [client, setClient] = useState(null);
+
+  const snippyly = useMemo(() => client, [client]);
 
   useEffect(() => {
     loadSnippyly(() => {
@@ -23,7 +24,7 @@ export default function SnippylyWrapper({ children }) {
   }
 
   return (
-    <SnippylyContext.Provider value={client}>
+    <SnippylyContext.Provider value={{ client: snippyly }}>
       {children}
     </SnippylyContext.Provider>
   );

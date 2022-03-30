@@ -1,39 +1,36 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { SnippylyContext } from '../../context/snippylyContext';
+import React, { useEffect, useState } from 'react';
+import { useSnippylyClient } from '../../context/snippylyContext';
 import { Users } from '../../users';
+import Menus from '../Menus/Menus';
 
-function Toolbar() {
+function Toolbar({ onMenuSelect }) {
     const [selectedUser, setSelectedUser] = useState(null);
     const users = Users;
 
-    const client = useContext(SnippylyContext);
+    const { client } = useSnippylyClient();
 
     useEffect(() => {
-        // If user is logged in then set it to selected user state
         if (localStorage.getItem('user')) {
             setSelectedUser(JSON.parse(localStorage.getItem('user')));
         }
     }, [])
 
     useEffect(() => {
+        // To call identifySnippyly once Snippyly is loaded and user is available
         if (selectedUser && client) {
             identifySnippyly();
         }
-    }, [selectedUser && client])
+    }, [selectedUser, client])
 
+    // To set user in Snippyly
     const identifySnippyly = async () => {
         if (client) {
-            client.identify(selectedUser).then((res) => {
+            client.identify(selectedUser).then(() => {
                 // User login successful
-            }).catch((err) => {
+            }).catch(() => {
                 // User login failure
             });
         }
-    }
-
-    const signOut = () => {
-        localStorage.removeItem('user');
-        window.location.reload();
     }
 
     const signIn = (user) => {
@@ -43,9 +40,15 @@ function Toolbar() {
         setSelectedUser(user);
     }
 
+    const signOut = () => {
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
+
     return (
         <div className='header'>
             <snippyly-presence></snippyly-presence>
+            <Menus onMenuSelect={onMenuSelect} />
             <div>
                 {
                     selectedUser ?
