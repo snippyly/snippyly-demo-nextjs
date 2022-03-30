@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { SnippylyContext } from '../../context/snippylyContext';
+import React, { useEffect, useState } from 'react';
+import { useSnippylyClient } from '../../context/snippylyContext';
 import { Users } from '../../users';
 
 function Toolbar() {
     const [selectedUser, setSelectedUser] = useState(null);
     const users = Users;
 
-    const client = useContext(SnippylyContext);
+    const { client } = useSnippylyClient();
 
     useEffect(() => {
         // If user is logged in then set it to selected user state
