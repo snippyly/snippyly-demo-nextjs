@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "firebase deploy --only hosting:default",
+    "deploy:wdp": "firebase deploy --only hosting:wdp",
+    "build:deploy": "npm run build && npm run deploy",
+    "build:deploy:wdp": "npm run build && npm run deploy:wdp"
   },
   "dependencies": {
     "next": "12.1.0",

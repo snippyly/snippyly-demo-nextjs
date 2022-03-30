@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { SnippylyContext } from '../context/snippylyContext';
 import loadSnippyly from '../loadSnippyly';
 
-export function SnippylyWrapper({ children }) {
+export default function SnippylyWrapper({ children }) {
   const [client, setClient] = useState(null);
 
   useEffect(() => {
