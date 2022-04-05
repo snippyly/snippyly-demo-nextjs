@@ -1,5 +1,5 @@
 import '../../styles/globals.css'
-import SnippylyWrapper from './snippylyWrapper'
+import SnippylyWrapper from '../snippylyWrapper'
 
 function MyApp({ Component, pageProps }) {
   return (

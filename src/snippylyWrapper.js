@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { SnippylyContext } from '../context/snippylyContext';
-import loadSnippyly from '../loadSnippyly';
+import { SnippylyContext } from './context/snippylyContext';
+import loadSnippyly from './loadSnippyly';
 
 export default function SnippylyWrapper({ children }) {
   const [client, setClient] = useState(null);
@@ -8,9 +8,7 @@ export default function SnippylyWrapper({ children }) {
   const snippyly = useMemo(() => client, [client]);
 
   useEffect(() => {
-    loadSnippyly(() => {
-      init();
-    })
+    loadSnippyly(init);
   }, [])
 
   // Callback function that is called once Snippyly SDK is loaded.
