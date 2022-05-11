@@ -21,6 +21,10 @@ export default function SnippylyWrapper({ children }) {
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
     setClient(client);
+
+    // To enable text comment feature
+    const commentElement = client.getCommentElement();
+    commentElement.enableTextCommentButton(true);
   }
 
   return (

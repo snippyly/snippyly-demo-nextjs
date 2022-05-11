@@ -83,3 +83,7 @@ snippyly-comment-tool .add-comment-btn img {
   width: 1.5rem;
   height: 1.5rem;
 }
+
+.text-comments-container {
+  padding: 24px;
+}
