@@ -24,7 +24,7 @@ export default function SnippylyWrapper({ children }) {
 
     // To enable text comment feature
     const commentElement = client.getCommentElement();
-    commentElement.enableTextCommentButton(true);
+    commentElement.enableTextComments(true);
   }
 
   return (
