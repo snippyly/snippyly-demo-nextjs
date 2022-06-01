@@ -17,6 +17,7 @@ export default function Home() {
       </Head>
       <snippyly-cursor></snippyly-cursor>
       <snippyly-comments></snippyly-comments>
+      <snippyly-comments-sidebar></snippyly-comments-sidebar>
       <snippyly-comment-tool>
         <div className='add-comment-btn'>
           <img src='https://cdn-icons-png.flaticon.com/512/727/727570.png' alt='Add comment' />
