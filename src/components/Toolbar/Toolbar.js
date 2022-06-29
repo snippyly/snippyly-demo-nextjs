@@ -41,6 +41,9 @@ function Toolbar({ onMenuSelect }) {
     }
 
     const signOut = () => {
+        if (client) {
+            client.signOutUser();
+        }
         localStorage.removeItem('user');
         window.location.reload();
     }
