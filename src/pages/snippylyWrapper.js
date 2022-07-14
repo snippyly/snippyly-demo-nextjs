@@ -2,6 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { SnippylyContext } from '../context/snippylyContext';
 import loadSnippyly from '../loadSnippyly';
 
+/**
+ * @type {import("@snippyly/types").Snippyly}
+ */
+var Snippyly;
+
 export default function SnippylyWrapper({ children }) {
   const [client, setClient] = useState(null);
 
@@ -15,6 +20,7 @@ export default function SnippylyWrapper({ children }) {
 
   // Callback function that is called once Snippyly SDK is loaded.
   const init = async () => {
+    Snippyly = window.Snippyly;
     const client = await Snippyly.init('4ZkRt6W2Qr6zMuBk04hn', {
       featureAllowList: [], // To allow specific features only
       userIdAllowList: [], // To allow specific users only
