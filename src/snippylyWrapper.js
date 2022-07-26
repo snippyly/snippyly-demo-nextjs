@@ -25,6 +25,8 @@ export default function SnippylyWrapper({ children }) {
       urlAllowList: [], // To allow snippyly in specific screens only
     }); // Add your Api Key here
     setClient(client);
+    // Enable attachments
+    client.getCommentElement().enableAttachment(true);
   }
 
   return (
