@@ -18,7 +18,7 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@snippyly/types": "^1.0.48",
+    "@snippyly/types": "^1.0.50",
     "eslint": "8.10.0",
     "eslint-config-next": "12.1.0"
   }

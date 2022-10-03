@@ -35,6 +35,8 @@ export default function SnippylyWrapper({ children }) {
     commentElement.enableAttachment(true);
     // To enable live selection feature
     const selectionElement = client.getSelectionElement();
+    // Show screen size info
+    commentElement.showScreenSizeInfo(true);
     selectionElement.enableLiveSelection(true);
     // Set document id
     client.setDocumentId(excludeSnippylyParamsFromUrl(window.location.href));
