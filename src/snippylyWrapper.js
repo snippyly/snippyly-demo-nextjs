@@ -27,6 +27,7 @@ export default function SnippylyWrapper({ children }) {
     setClient(client);
     // Enable attachments
     client.getCommentElement().enableAttachment(true);
+    client.getCommentElement().showScreenSizeInfo(true);
   }
 
   return (
