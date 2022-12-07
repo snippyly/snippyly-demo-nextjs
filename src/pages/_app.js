@@ -1,11 +1,48 @@
+import { SnippylyProvider } from '@snippyly/react'
 import '../../styles/globals.css'
-import SnippylyWrapper from './snippylyWrapper'
 
 function MyApp({ Component, pageProps }) {
+
+  const init = async (client) => {
+
+    if (client) {
+      // To enable text comment feature
+      const commentElement = client.getCommentElement();
+      commentElement.enableTextComments(true);
+      // Enable attachment feature
+      commentElement.enableAttachment(true);
+      // To enable live selection feature
+      const selectionElement = client.getSelectionElement();
+      // Show screen size info
+      commentElement.showScreenSizeInfo(true);
+      selectionElement.enableLiveSelection(true);
+      // Set document id
+      client.setDocumentId(excludeSnippylyParamsFromUrl(window.location.href));
+    }
+  }
+
+  const excludeSnippylyParamsFromUrl = (url) => {
+    try {
+      const tempUrl = new URL(url);
+      ['review', 'sreviewId', 'snippyly-user', 'scommentId', 'stagId'].forEach((param) => {
+        tempUrl.searchParams.delete(param);
+      });
+      return tempUrl.href;
+    } catch (err) {
+      return url;
+    }
+  }
+
+
   return (
-    <SnippylyWrapper>
+    <SnippylyProvider apiKey='4ZkRt6W2Qr6zMuBk04hn'
+      config={{
+        // featureAllowList: ['presence', 'cursor'],
+        // userIdAllowList: ['abcd'],
+        // urlAllowList: [],
+      }} onClientLoad={(client) => init(client)}>
       <Component {...pageProps} />
-    </SnippylyWrapper>
+    </SnippylyProvider>
   )
 }
 
