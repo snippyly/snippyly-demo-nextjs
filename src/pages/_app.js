@@ -1,4 +1,4 @@
-import { SnippylyProvider } from '@snippyly/react'
+import { VeltProvider } from '@veltdev/react'
 import '../../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {
@@ -13,14 +13,14 @@ function MyApp({ Component, pageProps }) {
       // To enable text comment feature
       const selectionElement = client.getSelectionElement();
       // Show screen size info
-      commentElement.showScreenSizeInfo(true);
+      commentElement.enableDeviceInfo();
       selectionElement.enableLiveSelection(true);
       // Set document id
-      client.setDocumentId(excludeSnippylyParamsFromUrl(window.location.href));
+      client.setDocumentId(excludeVeltParamsFromUrl(window.location.href));
     }
   }
 
-  const excludeSnippylyParamsFromUrl = (url) => {
+  const excludeVeltParamsFromUrl = (url) => {
     try {
       const tempUrl = new URL(url);
       ['review', 'sreviewId', 'snippyly-user', 'scommentId', 'stagId'].forEach((param) => {
@@ -33,14 +33,14 @@ function MyApp({ Component, pageProps }) {
   }
 
   return (
-    <SnippylyProvider apiKey='4ZkRt6W2Qr6zMuBk04hn'
+    <VeltProvider apiKey='4ZkRt6W2Qr6zMuBk04hn'
       config={{
         // featureAllowList: ['presence', 'cursor'],
         // userIdAllowList: ['abcd'],
         // urlAllowList: [],
       }} onClientLoad={(client) => init(client)}>
       <Component {...pageProps} />
-    </SnippylyProvider>
+    </VeltProvider>
   )
 }
 
